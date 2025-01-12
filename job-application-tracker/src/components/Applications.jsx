@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AddApplicationForm from './AddApplicationForm';  // Correct import for AddApplicationForm
+import AddApplicationForm from './AddApplicationForm';  
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,11 +17,13 @@ const Applications = () => {
 
   const addApplication = (newApp) => {
     if (editIndex !== null) {
+
       // If editing, update the application
+      
       const updatedApplications = [...applications];
       updatedApplications[editIndex] = newApp;
       setApplications(updatedApplications);
-      setEditIndex(null);  // Reset edit mode after updating
+      setEditIndex(null);  // Reset edit mode
     } else {
       // If adding a new application
       setApplications([...applications, newApp]);

@@ -26,16 +26,16 @@ const AddApplicationForm = ({ onAdd, editIndex, application }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd(formData);  // Add or update the application
-    setFormData({ jobTitle: '', company: '', status: 'In Progress', date: '' });  // Reset form
-    setIsVisible(false);  // Hide the form after submit
+    onAdd(formData);  
+    setFormData({ jobTitle: '', company: '', status: 'In Progress', date: '' });  
+    setIsVisible(false);  
   };
 
   return (
     <>
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all flex items-center"
-        onClick={() => setIsVisible(true)} // Show form
+        onClick={() => setIsVisible(true)} 
       >
         {editIndex === null ? 'Add Application' : 'Edit Application'}
       </button>
