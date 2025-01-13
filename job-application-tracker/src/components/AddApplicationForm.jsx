@@ -11,12 +11,11 @@ const AddApplicationForm = ({ onAdd, editIndex, application }) => {
 
   useEffect(() => {
     if (editIndex !== null) {
-      // If in edit mode, pre-fill the form with existing data
       setFormData(application);
-      setIsVisible(true);  // Show the form if editing
+      setIsVisible(true);
     } else {
       setFormData({ jobTitle: '', company: '', status: 'In Progress', date: '' });
-      setIsVisible(false);  // Hide the form if adding new
+      setIsVisible(false);
     }
   }, [editIndex, application]);
 
@@ -35,14 +34,15 @@ const AddApplicationForm = ({ onAdd, editIndex, application }) => {
     <>
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all flex items-center"
-        onClick={() => setIsVisible(true)} 
+        onClick={() => setIsVisible(true)}
+        aria-label={editIndex === null ? 'Add Application' : 'Edit Application'}
       >
         {editIndex === null ? 'Add Application' : 'Edit Application'}
       </button>
 
       {isVisible && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-end z-10 transition-opacity">
-          <div className="w-1/3 bg-white dark:bg-gray-900 p-6 shadow-lg">
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-10">
+          <div className="bg-white dark:bg-gray-900 p-6 shadow-lg w-full sm:w-1/2 lg:w-1/3 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">
               {editIndex === null ? 'Add New Application' : 'Edit Application'}
             </h2>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
@@ -20,18 +19,18 @@ const App = () => {
 
   return (
     <Router>
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row">
         <Sidebar />
         <div className="flex-1 min-h-screen bg-gray-100 dark:bg-gray-900 transition-all">
           {/* Header */}
           <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow">
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">JobTracker</h1>
-            <div className="flex items-center space-x-4">
-              <div className="relative">
+            <h1 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">JobTracker</h1>
+            <div className="flex items-center space-x-2 md:space-x-4">
+              <div className="relative w-3/4 md:w-auto">
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white"
+                  className="p-2 w-full md:w-auto rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white"
                 />
                 <FontAwesomeIcon
                   icon={faSearch}
@@ -40,7 +39,7 @@ const App = () => {
               </div>
               <FontAwesomeIcon
                 icon={faUserCircle}
-                className="text-3xl text-gray-900 dark:text-white cursor-pointer"
+                className="text-2xl md:text-3xl text-gray-900 dark:text-white cursor-pointer"
               />
               <button
                 onClick={() => setDarkMode(!darkMode)}
@@ -52,7 +51,7 @@ const App = () => {
           </header>
 
           {/* Main Content */}
-          <main className="p-6">
+          <main className="p-4 sm:p-6">
             <Routes>
               <Route path="/applications" element={<Applications />} />
               <Route path="/analytics" element={<Analytics />} />
@@ -69,4 +68,3 @@ const App = () => {
 };
 
 export default App;
-
