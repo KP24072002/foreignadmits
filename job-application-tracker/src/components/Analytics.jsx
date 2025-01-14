@@ -2,10 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTasks, faHourglassHalf, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Analytics = ({ applications = [] }) => {
+  // Handle status to ensure valid status values
+  const handleStatus = (status) => {
+    if (!status) return 'Unknown'; // Default fallback for missing statuses
+    return status;
+  };
+
+  // Calculate total and status-based counts
   const total = applications.length;
-  const inProgress = applications.filter((app) => app.status === 'In Progress').length;
-  const accepted = applications.filter((app) => app.status === 'Accepted').length;
-  const rejected = applications.filter((app) => app.status === 'Rejected').length;
+  const inProgress = applications.filter((app) => handleStatus(app.status) === 'In Progress').length;
+  const accepted = applications.filter((app) => handleStatus(app.status) === 'Accepted').length;
+  const rejected = applications.filter((app) => handleStatus(app.status) === 'Rejected').length;
 
   const analyticsData = [
     { count: total, label: 'Total Applications', icon: faTasks, color: 'blue' },
@@ -15,7 +22,6 @@ const Analytics = ({ applications = [] }) => {
   ];
 
   return (
-    
     <div className="p-4 sm:p-6 bg-gray-50 dark:bg-gray-900 rounded-lg">
       <h2 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900 dark:text-white">
         Analytics Overview

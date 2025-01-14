@@ -54,7 +54,7 @@ const App = () => {
           <main className="p-4 sm:p-6">
             <Routes>
               <Route path="/applications" element={<Applications />} />
-              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/application" element={<Applications />} />
               <Route path="/calendar" element={<div className="text-gray-900 dark:text-white"><h2>Calendar Section (Coming Soon)</h2></div>} />
               <Route path="/companies" element={<div className="text-gray-900 dark:text-white"><h2>Companies Section (Coming Soon)</h2></div>} />
               <Route path="/settings" element={<div className="text-gray-900 dark:text-white"><h2>Settings Section (Coming Soon)</h2></div>} />

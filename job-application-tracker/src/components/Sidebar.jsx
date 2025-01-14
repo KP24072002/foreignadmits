@@ -30,7 +30,7 @@ const Sidebar = () => {
       <ul className="mt-8">
         {[
           { to: '/applications', icon: faBriefcase, label: 'Applications' },
-          { to: '/analytics', icon: faChartPie, label: 'Analytics' },
+          { to: '/applications', icon: faChartPie, label: 'Analytics' },
           { to: '/calendar', icon: faCalendarAlt, label: 'Calendar' },
           { to: '/companies', icon: faBuilding, label: 'Companies' },
           { to: '/settings', icon: faCog, label: 'Settings' },
@@ -61,3 +61,5 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+;
